@@ -9,7 +9,7 @@ using FluentValidation;
 using FluentValidation.Results;
 using System.Linq.Expressions;
 
-namespace BussinessLogicLayer.Services
+namespace eCommerce.BusinessLogicLayer.Services
 {
     public class ProductsService : IProductsService
     {

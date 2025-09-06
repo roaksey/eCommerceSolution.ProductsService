@@ -8,9 +8,9 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace DataAccessLayer
 {
-    public static  class DependencyInjection
+    public static class DependencyInjection
     {
-        public static IServiceCollection AddDataAccessLayer(this IServiceCollection services,IConfiguration configuration)
+        public static IServiceCollection AddDataAccessLayer(this IServiceCollection services, IConfiguration configuration)
         {
             //TO DO : Add Data Access layer services into the IOC container
             services.AddDbContext<ApplicationDbContext>(options =>
