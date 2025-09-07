@@ -5,16 +5,19 @@ using DataAccessLayer.Entities;
 
 namespace BussinessLogicLayer.Mappers
 {
-    internal class ProductToProductResponseMappingProfile:Profile
+    public class ProductToProductResponseMappingProfile:Profile
     {
         public ProductToProductResponseMappingProfile()
         {
-            CreateMap<ProductAddRequest, Product>()
+            CreateMap<Product, ProductResponse>()
                 .ForMember(dest => dest.ProductName, opt => opt.MapFrom(src => src.ProductName))
-                .ForMember(dest => dest.Category, opt => opt.MapFrom(src => src.category))
+                .ForMember(dest => dest.Category, opt => opt.MapFrom(src => src.Category))
                 .ForMember(dest => dest.UnitPrice, opt => opt.MapFrom(src => src.UnitPrice))
-                .ForMember(dest => dest.QauntityInStock, opt => opt.MapFrom(src => src.QuantiryInStock))
+                .ForMember(dest => dest.QuantityInStock, opt => opt.MapFrom(src => src.QuantityInStock))
                 .ForMember(dest => dest.ProductID, opt => opt.Ignore());
+
+
+            
         }
     }
 }

@@ -5,6 +5,7 @@ using BussinessLogicLayer.DTO;
 using BussinessLogicLayer.ServiceContracts;
 using DataAccessLayer.Entities;
 using DataAccessLayer.Repository;
+using eCommerce.DataAccessLayer.RepositoryContracts;
 using FluentValidation;
 using FluentValidation.Results;
 using System.Linq.Expressions;
@@ -16,10 +17,10 @@ namespace eCommerce.BusinessLogicLayer.Services
         private readonly IValidator<ProductAddRequest> _productAddRequestValidator;
         private readonly IValidator<ProductUpdateRequest> _productUpdateRequestValidator;
         private readonly IMapper _mapper;
-        private readonly ProductRepository _productRepository;
+        private readonly IProductsRepository _productRepository;
         public ProductsService(IValidator<ProductAddRequest> productAddRequestValidator,
             IValidator<ProductUpdateRequest> productUpdateRequestValidator,
-                IMapper mapper, ProductRepository productRepository
+                IMapper mapper, IProductsRepository productRepository
             )
         {
             _productAddRequestValidator = productAddRequestValidator;

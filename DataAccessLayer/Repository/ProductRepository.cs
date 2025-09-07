@@ -59,7 +59,7 @@ public class ProductRepository : IProductsRepository
         }
         existingProduct.ProductName = product.ProductName;
         existingProduct.UnitPrice = product.UnitPrice;
-        existingProduct.QauntityInStock = product.QauntityInStock;
+        existingProduct.QuantityInStock = product.QuantityInStock;
         existingProduct.Category = product.Category;
         await _dbContext.SaveChangesAsync();
         return existingProduct;
