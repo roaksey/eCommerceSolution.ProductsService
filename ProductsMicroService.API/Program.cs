@@ -22,9 +22,20 @@ builder.Services.ConfigureHttpJsonOptions(options => {
 });
 
 
+//Add swagger   
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
 var app = builder.Build();
 app.UseExceptionHandlingMiddleware();
 app.UseRouting();
+
+//Swagger
+app.UseSwagger();
+app.UseSwaggerUI();
+
+//Authentication & Authorization
+app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
