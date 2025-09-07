@@ -22,13 +22,27 @@ builder.Services.ConfigureHttpJsonOptions(options => {
 });
 
 
-//Add swagger   
+//Add swagger   service 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+//Add Cors
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(builder =>
+    {
+        builder.WithOrigins("http://localhost:4200") // Adjust the origin as needed
+               .AllowAnyHeader()
+               .AllowAnyMethod();
+    });
+});
 
 var app = builder.Build();
 app.UseExceptionHandlingMiddleware();
 app.UseRouting();
+
+//Cors
+app.UseCors();
 
 //Swagger
 app.UseSwagger();
